@@ -36,14 +36,13 @@ class q42 {
                 right+=1;
             }
         }
+
         left = right = len-1;
         for(int i = len-1;i>max_element_index-1;i-=1){
-            // System.err.printf("Left: %d Right: %d Area: %d Blocks: %d Actual Max: %d\n",left,right,area,blocks,actual_max);
             int hl = height[left];
             int rl = height[right];
             if(rl <= hl && left != right){
                 area = (right-left-1)*rl;
-                // System.err.printf("Left: %d Right: %d Area: %d Blocks: %d Actual Max: %d\n",left,right,area,blocks,actual_max);
                 actual_max += area-blocks;
                 blocks = 0;
                 area = 0;
@@ -59,11 +58,11 @@ class q42 {
             }
         }
         return actual_max;
+
     }
 
     public static void main(String[] args){
-        // int[] nums = {0,1,0,2,1,0,1,3,2,1,2,1};
-        int[] nums = {2,0,2};
+        int[] nums = {0,1,0,2,1,0,1,3,2,1,2,1};
         System.err.println(trap(nums));
     }
 }
